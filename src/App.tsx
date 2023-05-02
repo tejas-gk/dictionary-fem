@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Search } from 'react-feather';
 import Results from './components/Results';
 import { FontContext } from './components/SelectFonts';
+import FontProvider from './contexts/FontContext';
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
@@ -20,7 +21,7 @@ function App() {
   };
   return (
     <>
-      <FontContext.Provider value={{ font: 'sans-serif' }}>
+      <FontProvider>
       <Header />
       <div className='w-[50rem]  mx-auto mt-5 mb-5'>
         <div className='w-full'>
@@ -57,7 +58,7 @@ function App() {
           )
         }
         </section>
-      </FontContext.Provider>
+      </FontProvider>
     </>
   )
 }

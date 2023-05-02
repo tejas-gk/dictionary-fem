@@ -20,8 +20,9 @@ const fonts = [
 
 export default function Header() {
     const [mode, setMode] = useState('dark');
-    const { font } = useContext(FontContext);
-    console.log(font, 'font');
+
+    const { font, setFont } = useContext(FontContext);
+   
     useEffect(() => {
         if (mode === 'dark') {
             document.body.classList.add('dark');
