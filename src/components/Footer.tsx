@@ -6,21 +6,22 @@ export default function Footer({
     console.log(word.sourceUrls)
   return (
       
-          <footer className="mb-6 w-full">
+          <footer className="mb-6 w-full flex">
               <a
               
                   target="_blank"
-                  className="text-customGray-800 underline"
+                  className="text-gray-800  dark:text-gray-100"
               >
                   Source
           </a>
           
-              <div className="">
+              <div className="flex flex-col ml-4">
               {
                   word.map((w: any, i: number) => (
                       <div key={i} className="flex flex-col">
                           <a
-                            href={w.sourceUrls}
+                              href={w.sourceUrls}
+                              className='underline'
                           >
                               {w.sourceUrls}
                           </a>

@@ -1,4 +1,4 @@
-import  { useState ,createContext } from 'react'
+import  { useState ,createContext,useRef ,useEffect,useCallback} from 'react'
 
 const fonts = [
     {
@@ -22,12 +22,33 @@ export const FontContext = createContext(
 export default function SelectFonts() {
     const [open, setOpen] = useState(false);
     const [font, setFont] = useState('sans-serif');
+
+    const selectRef = useRef(null);
+
+    const handleClickOutside = useCallback((e) => {
+        if (selectRef.current && !selectRef.current.contains(e.target)) {
+            setOpen(false);
+        }
+    }, [selectRef]);
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, [handleClickOutside]);
+    
+
   return (
-      <div className='relative'>
+      <div className='relative'
+        ref={selectRef}
+      >
           <FontContext.Provider value={{font, setFont}}>
           <div className='
-                    flex flex-row mr-16 gap-3 items-center dark:text-white
-                    '>
+                    flex flex-row  gap-3 items-center dark:text-white cursor-pointer
+                    '
+                  onClick={() => setOpen(!open)}
+              >
 
               <h2>
                     {font}
@@ -35,9 +56,7 @@ export default function SelectFonts() {
 
               <img
                   src='/assets/dictionary/assets/images/icon-arrow-down.svg'
-                  alt='arrow down'
-                  className='cursor-pointer'
-                  onClick={()=>setOpen(!open)}
+                  alt='arrow down'           
               />
           </div>
           {

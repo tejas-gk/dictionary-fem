@@ -46,7 +46,7 @@ export default function Header() {
             >
                <SelectFonts/>
 
-                <span className='text-gray-400'>|</span>
+                <span className='text-gray-400 mx-4'>|</span>
                 <Modes
                     theme={mode}
                     onClick={() => {
