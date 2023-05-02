@@ -1,87 +1,59 @@
+import Footer from "./Footer";
+import NounOrVerb from "./NounOrVerb";
+import { FontContext } from "./SelectFonts"
+import { useContext ,useEffect} from 'react'
 export default function Results({
     results
 }: any) {
     console.log('from results', results[0]?.meanings[0]?.definitions[0].definition)
+    const { font } = useContext(FontContext);
+
+
+
+    useEffect(() => {
+        alert(font)
+    }, [font])
+
+    if (!results[0]?.meanings[0]?.definitions[0].definition) return (
+        <div>
+            <h1 style={{
+                fontFamily: font
+            }}
+            >
+                No results found
+            </h1>
+        </div>
+    )
+
+
     return (
         <div>
-            
             <div className='flex flex-col'>
-
                 <div className='
             flex justify-between items-center
             '>
-                    <h1 className='text-5xl font-extrabold'>
+                    <h1
+                        style={{
+                            fontFamily: font
+                        }}
+                        className='text-5xl font-extrabold'>
                         {results[0]?.word}
                     </h1>
                     <img src='/assets/dictionary/assets/images/icon-play.svg' alt='volume icon' />
                 </div>
 
-                <p className='text-[#ad76cd]'>
+                <p className='text-primary'>
                     {results[0]?.phonetic}
                 </p>
             </div>
-            <div className="mt-10">
-                <h2 className='text-2xl font-bold'>
-                    {results[0]?.meanings[0]?.partOfSpeech}
-                </h2>
-
-                <h2 className='text-2xl font-bold text-gray-400 mt-10'>
-                    Meaning
-                </h2>
-                <ul className='list-disc list-inside line-clamp-3 mt-5 gap-3 flex flex-col
-                '>
-                    {
-                        results[0]?.meanings[0]?.definitions[0].definition
-                    }
-                    {
-                        results[0]?.meanings[0]?.definitions?.map((def, i) => {
-                            <li key={i}>
-                                {def?.definition}
-                            </li>
-                        })
-                    }
-                </ul>
-                
-                <div>
-                    <h2 className='text-2xl font-bold text-gray-400 mt-10'>
-                        Synonyms
-                    </h2>
-                    <p className="text-[]">
-                        {results[0]?.meanings[0]?.synonyms}
-                    </p>
-                </div>
+            <div>
+                <NounOrVerb
+                    word={results[0]}
+                />
             </div>
 
-            <div className="mt-10">
-                <h2 className='text-2xl font-bold'>
-                    {results[0]?.meanings[1]?.partOfSpeech}
-                </h2>
-
-                <h2 className='text-2xl font-bold text-gray-400 mt-10'>
-                    Meaning
-                </h2>
-                <ul className='list-disc list-inside line-clamp-3 mt-5 gap-3 flex flex-col
-                '>
-                    <li className='text-md'>
-                        a set of keys that are used to operate a computer or typewriter.
-                    </li>
-                    <li className='text-md'>
-                        a set of keys that are used to operate a computer or typewriter.
-                    </li>
-                    <li className='text-md'>
-                        a set of keys that are used to operate a computer or typewriter.
-                    </li>
-                </ul>
-            </div>
-            <p>
-                <span>
-                    Source
-                </span>
-                <span>
-                    Oxford Dictionary
-                </span>
-           </p>
-
+            
+           <Footer word={results}/>
         </div>
     )
 }

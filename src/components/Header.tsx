@@ -1,11 +1,39 @@
-import { createContext } from 'react';
+import { useState, useEffect ,useContext} from 'react';
+import Modes from './Modes';
+import SelectFonts from './SelectFonts';
+import { FontContext } from './SelectFonts';
 
-const FontContext = createContext('');
+const fonts = [
+    {
+        name: 'Sans-serif',
+        fontFamily: 'sans-serif',
+    },
+    {
+        name: 'Serif',
+        fontFamily: 'serif',
+    },
+    {
+        name: 'Monospace',
+        fontFamily: 'monospace',
+    }
+]
 
 export default function Header() {
+    const [mode, setMode] = useState('dark');
+    const { font } = useContext(FontContext);
+    console.log(font, 'font');
+    useEffect(() => {
+        if (mode === 'dark') {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
+    }, [mode]);
+    
+
     return (
         <div
-            className='flex  justify-center items-center h-20 w-full 
+            className='flex  justify-center items-center h-20 w-full bg-white dark:bg-black
     '
         >
             <img
@@ -16,33 +44,14 @@ export default function Header() {
                 className='flex items-center w-1/2  justify-end gap-2
       '
             >
-                <div className='
-                    flex flex-row mr-16 gap-3 items-center
-                    '>
-
-                    <h2>Sans-serif</h2>
-
-                    <img
-                        src='/assets/dictionary/assets/images/icon-arrow-down.svg'
-                        alt='arrow down'
-                        />
-                </div>
+               <SelectFonts/>
 
                 <span className='text-gray-400'>|</span>
-                <div className='form-check form-switch'>
-                    {/* <FontContext.Provider={value}> */}
-                    <input
-                        title='Switch to dark mode'
-                        className='form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top  bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm'
-                        type='checkbox'
-                        role='switch'
-                        id='flexSwitchCheckDefault'
-                    />
-                    {/* </FontContext.Provider/> */}
-                </div>
-                <img
-                    src='/assets/dictionary/assets/images/icon-moon.svg'
-                    alt='moon icon'
+                <Modes
+                    theme={mode}
+                    onClick={() => {
+                        setMode(mode === 'dark' ? 'light' : 'dark');
+                    }}
                 />
             </div>
         </div>
