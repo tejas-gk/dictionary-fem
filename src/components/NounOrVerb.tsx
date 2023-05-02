@@ -10,9 +10,12 @@ export default function NounOrVerb({
                     <div key={i}
                         className='mt-8 
                     '>
+                        <div className='flex items-center'>
                         <h1 className='text-2xl font-bold'>
                             {meaning.partOfSpeech}
                         </h1>
+                        <div className="ml-5 flex-1 h-[1px] bg-gray-300 dark:bg-gray-100"></div>
+                        </div>
                         <h2 className='text-2xl font-bold text-gray-400 mt-20'>
                             Meaning
                         </h2>
@@ -34,7 +37,7 @@ export default function NounOrVerb({
                                     <h2 className='text-2xl font-bold text-gray-400 mt-10'>
                                         Synonyms
                                     </h2>
-                                    <ul className='list-disc list-inside marker:text-[#ad76cd]'
+                                    <ul className='list-disc list-inside text-[#ad76cd] font-bold'
                                     >
                                         {
                                             meaning?.synonyms.map((synonym: any, k: number) => (
