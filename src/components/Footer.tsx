@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer({
     word
-}) {
+}: any) {
     console.log(word.sourceUrls)
   return (
       

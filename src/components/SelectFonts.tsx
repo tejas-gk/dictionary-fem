@@ -1,18 +1,4 @@
 import  { useState ,createContext,useRef ,useEffect,useCallback} from 'react'
-const fonts = [
-    {
-        name: 'Sans-serif',
-        fontFamily: 'sans-serif',
-    },
-    {
-        name: 'Serif',
-        fontFamily: 'serif',
-    },
-    {
-        name: 'Monospace',
-        fontFamily: 'monospace',
-    }
-]
 
 export const FontContext = createContext(
     {}
@@ -22,7 +8,7 @@ export default function SelectFonts() {
     const [open, setOpen] = useState(false);
     const [font, setFont] = useState('sans-serif');
 
-    const selectRef = useRef<HTMLSelectElement>(null);
+    const selectRef = useRef<HTMLDivElement>(null);
 
     const handleClickOutside = useCallback((e:any) => {
         if (selectRef.current && !selectRef.current.contains(e.target)) {

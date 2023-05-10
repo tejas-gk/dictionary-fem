@@ -18,7 +18,7 @@ export default function Results({
     )
 
     const getAudio = () => {
-        const audio = new Audio(results[0]?.phonetics?.find(p => p.audio)?.audio);
+        const audio = new Audio(results[0]?.phonetics?.find((p:any) => p.audio)?.audio);
         if (audio) {
             audio.play();
         }
