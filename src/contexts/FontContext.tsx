@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 
 
-export const FontContext = createContext();
+export const FontContext = createContext({});
 
-export default function FontProvider(props) {
+export default function FontProvider(props:any) {
     const [font, setFont] = useState('sans-serif');
 
     useEffect(() => {

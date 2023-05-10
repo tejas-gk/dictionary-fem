@@ -19,15 +19,17 @@ const fonts = [
 ]
 
 export default function Header() {
-    const [mode, setMode] = useState('dark');
+    const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');
 
-    const { font, setFont } = useContext(FontContext);
+    
    
     useEffect(() => {
         if (mode === 'dark') {
             document.body.classList.add('dark');
+            localStorage.setItem('mode', 'dark');
         } else {
             document.body.classList.remove('dark');
+            localStorage.setItem('mode', 'light');
         }
     }, [mode]);
     

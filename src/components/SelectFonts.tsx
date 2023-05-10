@@ -1,5 +1,4 @@
 import  { useState ,createContext,useRef ,useEffect,useCallback} from 'react'
-
 const fonts = [
     {
         name: 'Sans-serif',
@@ -23,9 +22,9 @@ export default function SelectFonts() {
     const [open, setOpen] = useState(false);
     const [font, setFont] = useState('sans-serif');
 
-    const selectRef = useRef(null);
+    const selectRef = useRef<HTMLSelectElement>(null);
 
-    const handleClickOutside = useCallback((e) => {
+    const handleClickOutside = useCallback((e:any) => {
         if (selectRef.current && !selectRef.current.contains(e.target)) {
             setOpen(false);
         }
@@ -43,7 +42,7 @@ export default function SelectFonts() {
       <div className='relative'
         ref={selectRef}
       >
-          <FontContext.Provider value={{font, setFont}}>
+        
           <div className='
                     flex flex-row  gap-3 items-center dark:text-white cursor-pointer
                     '
@@ -90,7 +89,7 @@ export default function SelectFonts() {
                   </div>
                 )
               }
-            </FontContext.Provider>
+       
     </div>
   )
 }
