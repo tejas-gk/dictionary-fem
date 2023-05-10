@@ -24,7 +24,7 @@ function App() {
     <>
         <Header />
         
-      <div className="w-full mx-auto mt-5 mb-5 sm:w-80 md:w-96 lg:w-[50rem]">
+      <div className={`w-full mx-auto mt-5 mb-5 sm:w-80 md:w-96 lg:w-[50rem] ${font.font}`}>
         <div className="w-full">
           <form
             className="flex justify-between items-center mx-5 py-2 px-4 sm:px-10 rounded-md bg-[#f4f4f4]"
