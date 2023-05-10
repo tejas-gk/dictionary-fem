@@ -44,7 +44,11 @@ export default function Results({ results }: any) {
 
                 <p className='text-primary'>{results[0]?.phonetic}</p>
             </div>
-            <div>
+            <div className='
+                lg:mx-5 mx-1 
+            '
+            
+            >
                 <NounOrVerb word={results[0]} />
             </div>
 
