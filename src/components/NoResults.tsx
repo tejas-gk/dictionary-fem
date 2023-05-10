@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-import { FontContext, FontAction } from '../contexts/FontContext';
+import { FontContext } from '../contexts/FontContext';
 
 export default function NoResults() {
   const [font] = useContext(FontContext);
