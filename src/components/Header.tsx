@@ -1,12 +1,10 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Modes from './Modes';
 import SelectFonts from './SelectFonts';
 
 export default function Header() {
     const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');
 
-    
-   
     useEffect(() => {
         if (mode === 'dark') {
             document.body.classList.add('dark');
@@ -16,11 +14,10 @@ export default function Header() {
             localStorage.setItem('mode', 'light');
         }
     }, [mode]);
-    
 
     return (
         <div
-            className='flex lg:justify-center justify-between items-center h-20 w-full bg-white dark:bg-black mx-10 lg:mx-0
+            className='mx-10 flex h-20 w-full items-center justify-between bg-white dark:bg-black lg:mx-0 lg:justify-center
     '
         >
             <img
@@ -28,10 +25,10 @@ export default function Header() {
                 alt='dictionary logo'
             />
             <div
-                className='flex items-center lg:w-1/2  justify-end gap-2  lg:mr-0 mr-12
+                className='mr-12 flex items-center  justify-end gap-2  lg:mr-0 lg:w-1/2
       '
             >
-               <SelectFonts/>
+                <SelectFonts />
 
                 <span className='text-gray-400 lg:mx-4'>|</span>
                 <Modes
