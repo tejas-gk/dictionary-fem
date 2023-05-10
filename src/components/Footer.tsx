@@ -3,7 +3,6 @@ import React from 'react'
 export default function Footer({
     word
 }: any) {
-    console.log(word.sourceUrls)
   return (
       
           <footer className="mb-6 w-full flex">

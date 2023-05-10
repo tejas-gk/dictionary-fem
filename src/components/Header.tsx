@@ -1,22 +1,6 @@
-import { useState, useEffect ,useContext} from 'react';
+import { useState, useEffect} from 'react';
 import Modes from './Modes';
 import SelectFonts from './SelectFonts';
-import { FontContext } from './SelectFonts';
-
-const fonts = [
-    {
-        name: 'Sans-serif',
-        fontFamily: 'sans-serif',
-    },
-    {
-        name: 'Serif',
-        fontFamily: 'serif',
-    },
-    {
-        name: 'Monospace',
-        fontFamily: 'monospace',
-    }
-]
 
 export default function Header() {
     const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');

@@ -1,30 +1,31 @@
-import  { useState } from 'react'
+import  { useState,useContext } from 'react'
 import Header from './components/Header'
 import axios from 'axios';
-import { Search } from 'react-feather';
+import { Search as SearchIcon } from 'react-feather';
 import Results from './components/Results';
-import { FontContext } from './components/SelectFonts';
-import FontProvider from './contexts/FontContext';
+import { FontContext } from './contexts/FontContext';
+
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
 
+  const [font] = useContext(FontContext);
+
+
   const handleSearch = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`;
-    console.log(dictionaryUrl);
     axios.get(dictionaryUrl).then((res) => {
-      console.log(res);
       setResults(res.data);
-      console.log('rrr', results);
     });
   };
+
   return (
     <>
-      <FontProvider>
-      <Header />
-      <div className='w-[50rem]  mx-auto mt-5 mb-5'>
-        <div className='w-full'>
+        <Header />
+        
+      <div className={`w-[50rem]  mx-auto mt-5 mb-5 ${font.font}`}>
+          <div className='w-full'>
           <form
             className='flex justify-between items-center w-full py-2 px-10 rounded-md bg-[#f4f4f4] '
             onSubmit={handleSearch}
@@ -41,7 +42,7 @@ function App() {
             <button
               title='Search'
               type='button'>
-              <Search
+              <SearchIcon
                 className='text-2xl text-gray-400 dark:text-black'
               />
             </button>
@@ -58,7 +59,6 @@ function App() {
           )
         }
         </section>
-      </FontProvider>
     </>
   )
 }

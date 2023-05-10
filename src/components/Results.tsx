@@ -1,14 +1,13 @@
 import Footer from "./Footer";
 import NoResults from "./NoResults";
 import NounOrVerb from "./NounOrVerb";
-import { FontContext } from "./SelectFonts"
-import { useContext ,useEffect} from 'react'
+import { FontContext } from '../contexts/FontContext';
+import {useContext} from 'react'
 export default function Results({
     results
 }: any) {
-    console.log('from results', results[0]?.meanings[0]?.definitions[0].definition)
-    // const { font } = useContext(FontContext);
 
+    const [font] = useContext(FontContext);
 
 
     if (!results[0]?.meanings[0]?.definitions[0].definition) return (
@@ -26,7 +25,7 @@ export default function Results({
     };
 
     return (
-        <div>
+        <div className={`${font.font}`}>
             <div className='flex flex-col'>
                 <div className='
             flex justify-between items-center

@@ -1,10 +1,12 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+import { FontContext, FontAction } from '../contexts/FontContext';
 
 export default function NounOrVerb({
     word
 }: any) {
+    const [font, dispatch] = useContext(FontContext);
     return (
+
         <div>
             {
                 word?.meanings.map((meaning: any, i: number) => (
@@ -12,7 +14,7 @@ export default function NounOrVerb({
                         className='mt-8 
                     '>
                         <div className='flex items-center'>
-                            <h1 className='text-2xl font-bold'>
+                            <h1 className={`text-2xl font-bold`}>
                                 {meaning.partOfSpeech}
                             </h1>
                             <div className="ml-5 flex-1 h-[1px] bg-gray-300 dark:bg-gray-100"></div>
