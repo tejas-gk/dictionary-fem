@@ -17,7 +17,7 @@ export default function Header() {
 
     return (
         <div
-            className='mx-10 flex h-20 w-full items-center justify-between bg-white dark:bg-black lg:mx-0 lg:justify-center
+            className='mx-10 flex h-20 w-full items-center justify-between bg-white dark:bg-black lg:-mx-2 lg:justify-center
     '
         >
             <img

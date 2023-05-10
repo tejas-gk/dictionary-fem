@@ -5,7 +5,7 @@ interface ModesProps {
 export default function Modes({ theme, onClick }: ModesProps) {
     return (
         <div>
-            <div className='grid grid-flow-col items-center gap-2'>
+            <div className='grid grid-flow-col items-center gap-4'>
                 <div
                     className={`flex h-5 w-10 cursor-pointer items-center rounded-full bg-gray-800 dark:bg-primary `}
                     onClick={() => onClick()}
