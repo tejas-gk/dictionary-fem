@@ -20,7 +20,7 @@ export default function NounOrVerb({
                         </h2>
                         {
                             meaning.definitions.map((definition: any, j: number) => (
-                                <ul key={j} className='list-disc list-inside marker:text-[#ad76cd]
+                                <ul key={j} className='list-disc list-inside marker:text-primary
 
                                 '
                                 >
