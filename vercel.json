@@ -1,17 +1,8 @@
 {
-    "builds": [
-        {
-            "src": "build/**",
-            "use": "@vercel/static"
+    "build": {
+        "env": {
+            "CI": "true",
+            "NEXT_TELEMETRY_DISABLED": "1"
         }
-    ],
-    "routes": [
-        {
-            "src": "/.*",
-            "dest": "/index.html"
-        }
-    ],
-    "ignore": [
-        "**/*.warning"
-    ]
+    }
 }
