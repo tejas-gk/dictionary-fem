@@ -1,10 +1,10 @@
-import React,{useContext} from 'react'
-import { FontContext, FontAction } from '../contexts/FontContext';
+import {useContext} from 'react'
+import { FontContext} from '../contexts/FontContext';
 
 export default function NounOrVerb({
     word
 }: any) {
-    const [font, dispatch] = useContext(FontContext);
+    const [font] = useContext(FontContext);
     return (
 
         <div>

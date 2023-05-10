@@ -1,8 +1,8 @@
-import React,{useContext} from 'react'
+import {useContext} from 'react'
 import { FontContext, FontAction } from '../contexts/FontContext';
 
 export default function NoResults() {
-  const [font, dispatch] = useContext(FontContext);
+  const [font] = useContext(FontContext);
 
   return (
     <div className={`${font.font}`}>
