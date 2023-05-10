@@ -3,11 +3,11 @@ export default function Footer({
 }: any) {
   return (
       
-          <footer className="mb-6 w-full flex">
+          <footer className="mb-6 w-full flex  flex-col lg:flex-row">
               <a
               
                   target="_blank"
-                  className="text-gray-800  dark:text-gray-100"
+                  className="text-gray-800  dark:text-gray-100 ml-4 lg:ml-0"
               >
                   Source
           </a>

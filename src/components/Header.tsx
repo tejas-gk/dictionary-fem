@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <div
-            className='flex  justify-center items-center h-20 w-full bg-white dark:bg-black
+            className='flex lg:justify-center justify-between items-center h-20 w-full bg-white dark:bg-black mx-10 lg:mx-0
     '
         >
             <img
@@ -28,12 +28,12 @@ export default function Header() {
                 alt='dictionary logo'
             />
             <div
-                className='flex items-center w-1/2  justify-end gap-2
+                className='flex items-center lg:w-1/2  justify-end gap-2  lg:mr-0 mr-12
       '
             >
                <SelectFonts/>
 
-                <span className='text-gray-400 mx-4'>|</span>
+                <span className='text-gray-400 lg:mx-4'>|</span>
                 <Modes
                     theme={mode}
                     onClick={() => {

@@ -26,20 +26,22 @@ export default function Results({
 
     return (
         <div className={`${font.font}`}>
-            <div className='flex flex-col'>
+            <div className='flex flex-col mx-5'>
                 <div className='
-            flex justify-between items-center
+            flex justify-between items-center 
             '>
                     <h1
-                        
-                        className='text-5xl font-extrabold'>
+                        className='text-5xl  font-extrabold'>
                         {results[0]?.word}
                     </h1>
                     <button
                         onClick={getAudio}
                         className='audio-btn'
                     >
-                        <img src='/assets/dictionary/assets/images/icon-play.svg' alt='volume icon' />
+                        <img src='/assets/dictionary/assets/images/icon-play.svg'
+                            alt='volume icon'
+                            className="h-16 w-16 lg:h-none lg:w-none"
+                        />
                     </button>
                 </div>
 

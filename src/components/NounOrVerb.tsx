@@ -3,7 +3,7 @@ export default function NounOrVerb({
 }: any) {
     return (
 
-        <div>
+        <div className="mx-4 lg:mx-0">
             {
                 word?.meanings.map((meaning: any, i: number) => (
                     <div key={i}
@@ -20,7 +20,9 @@ export default function NounOrVerb({
                         </h2>
                         {
                             meaning.definitions.map((definition: any, j: number) => (
-                                <ul key={j} className='list-disc list-inside marker:text-[#ad76cd]'
+                                <ul key={j} className='list-disc list-inside marker:text-[#ad76cd]
+
+                                '
                                 >
                                     <li className='mb-4'>
                                         {definition.definition}

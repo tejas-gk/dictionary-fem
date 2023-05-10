@@ -24,33 +24,32 @@ function App() {
     <>
         <Header />
         
-      <div className={`w-[50rem]  mx-auto mt-5 mb-5 ${font.font}`}>
-          <div className='w-full'>
+      <div className="w-full mx-auto mt-5 mb-5 sm:w-80 md:w-96 lg:w-[50rem]">
+        <div className="w-full">
           <form
-            className='flex justify-between items-center w-full py-2 px-10 rounded-md bg-[#f4f4f4] '
+            className="flex justify-between items-center mx-5 py-2 px-4 sm:px-10 rounded-md bg-[#f4f4f4]"
             onSubmit={handleSearch}
           >
             <input
-              placeholder='Search for any word...'
-              type='text'
-              className='text-xl w-full bg-transparent border-none outline-none leading-8 font-bold  dark:placeholder-gray-400
-              dark:text-black focus:border-[#f4f4f4]
-              '
+              placeholder="Search for any word..."
+              type="text"
+              className="text-xl w-full sm:w-auto bg-transparent border-none outline-none leading-8 font-bold dark:placeholder-gray-400 dark:text-black focus:border-[#f4f4f4]"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
             <button
-              title='Search'
-              type='button'>
-              <SearchIcon
-                className='text-2xl text-gray-400 dark:text-black'
-              />
+              title="Search"
+              type="submit"
+              className="mt-3 sm:mt-0 sm:ml-2 sm:flex-shrink-0"
+            >
+              <SearchIcon className="text-2xl text-gray-400 dark:text-black -mt-3 lg:mt-0" />
             </button>
           </form>
         </div>
       </div>
 
-      <section className='w-[50rem]  mx-auto mt-5 mb-5'>
+
+      <section className='lg:w-[50rem]  mx-auto mt-5 mb-5'>
         {
           results && (
             <Results

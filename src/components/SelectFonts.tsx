@@ -35,7 +35,7 @@ const SelectFonts:React.FC = () => {
                 className='flex flex-row gap-3 items-center dark:text-white cursor-pointer'
                 onClick={() => setOpen(!open)}
             >
-                <h2>{font.font}</h2>
+                <h2 className='font-bold'>{font.font}</h2>
                 <img src='/assets/dictionary/assets/images/icon-arrow-down.svg' alt='arrow down' />
             </div>
             {open && (
